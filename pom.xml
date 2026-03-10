@@ -6,6 +6,7 @@
   <packaging>pom</packaging>
   <name>proyectocadenapadre</name>
   <!-- https://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html
+  
      La construccion de Maven tiene un ciclo de vida especifico para desplegar y distribuir el proyecto    
     CICLOS DE VIDA:
       Hay 3 ciclos integrados
