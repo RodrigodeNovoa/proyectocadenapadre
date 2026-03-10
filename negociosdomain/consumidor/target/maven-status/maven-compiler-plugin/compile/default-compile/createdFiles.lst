@@ -1,0 +1,4 @@
+com\proyectocadena\consumidor\controller\ConsumidorRestController.class
+com\proyectocadena\consumidor\entities\Consumidor.class
+com\proyectocadena\consumidor\ConsumidorApplication.class
+com\proyectocadena\consumidor\repository\ConsumidorRepositorio.class
