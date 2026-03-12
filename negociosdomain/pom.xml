@@ -13,6 +13,8 @@
   
   <modules>
   	<module>consumidor</module>
+  	<module>productos</module>
+  	<module>transaccion</module>
   </modules>
   
   <properties>

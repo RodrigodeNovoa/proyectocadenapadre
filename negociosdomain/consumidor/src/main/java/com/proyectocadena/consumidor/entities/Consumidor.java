@@ -14,7 +14,5 @@ public class Consumidor {
 	private long id;
 	private String name;
 	private String phone;
-	//De tres atributos se compone el consumidor.
-	//Ultimo cambio por hoy
 
 }
