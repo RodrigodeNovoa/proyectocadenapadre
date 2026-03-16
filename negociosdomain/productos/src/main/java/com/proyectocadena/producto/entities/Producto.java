@@ -1,4 +1,4 @@
-package com.proyectocadena.consumidor.entities;
+package com.proyectocadena.producto.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,11 +8,11 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Consumidor {
+public class Producto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private long id;
+	private String codigo;
 	private String nombre;
-	private String telefono;
 
 }

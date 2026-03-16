@@ -1,0 +1,4 @@
+com\proyectocadena\producto\controller\ProductoRestController.class
+com\proyectocadena\producto\repository\ProductoRepositorio.class
+com\proyectocadena\producto\entities\Producto.class
+com\proyectocadena\producto\ProductoApplication.class

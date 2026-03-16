@@ -1,10 +1,10 @@
-package com.proyectocadena.consumidor.controller;
+package com.proyectocadena.producto.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.proyectocadena.consumidor.entities.Consumidor;
-import com.proyectocadena.consumidor.repository.ConsumidorRepositorio;
+import com.proyectocadena.producto.entities.Producto;
+import com.proyectocadena.producto.repository.ProductoRepositorio;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController // Indicamos el controlador Rest
-@RequestMapping("/consumidor") // Mapeamos la ruta /api como ruta de acceso a la clase
-public class ConsumidorRestController {
+@RequestMapping("/producto") // Mapeamos la ruta /api como ruta de acceso a la clase
+public class ProductoRestController {
 
 	@Autowired // Instancia automaticamente
-	ConsumidorRepositorio consumidorRepo;
+	ProductoRepositorio productoRepo;
 
 	@GetMapping()
-	public List<Consumidor> findAll() {
-		return consumidorRepo.findAll(); // metodo findAll(), proporcionado por JpaRepository, desde el
+	public List<Producto> findAll() {
+		return productoRepo.findAll(); // metodo findAll(), proporcionado por JpaRepository, desde el
 											// ConsumidorRepositorio
 	}
 
@@ -40,28 +40,28 @@ public class ConsumidorRestController {
 		 * nulo. Si hay un valor, isPresent() devuelve verdadero. Si no hay ningun
 		 * valor, devuelve falso.
 		 */
-		Optional<Consumidor> consumidor = consumidorRepo.findById(id);
-		if (consumidor.isPresent()) {
-			return new ResponseEntity<>(consumidor.get(), HttpStatus.OK);
+		Optional<Producto> producto = productoRepo.findById(id);
+		if (producto.isPresent()) {
+			return new ResponseEntity<>(producto.get(), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> put(@PathVariable long id, @RequestBody Consumidor input) {
+	public ResponseEntity<?> put(@PathVariable long id, @RequestBody Producto input) {
 		/*
 		 * Recibo una entidad Consumidor y su ID que me piden actualizar
 		 * Lo busco en la base de datos.
 		 * si existe, remapeo esos valores y lo guardo en la base de datos.
 		 * Si no, retorno que no existe.
 		 */
-		Optional<Consumidor> consumidor = consumidorRepo.findById(id);
+		Optional<Producto> consumidor = productoRepo.findById(id);
 		if (consumidor.isPresent()) {
-			Consumidor nuevoConsumidor = consumidor.get();
+			Producto nuevoConsumidor = consumidor.get();
+			nuevoConsumidor.setCodigo(input.getCodigo());
 			nuevoConsumidor.setNombre(input.getNombre());
-			nuevoConsumidor.setTelefono(input.getTelefono());
-			Consumidor guardaConsumidor = consumidorRepo.save(nuevoConsumidor);
+			Producto guardaConsumidor = productoRepo.save(nuevoConsumidor);
 			return new ResponseEntity<>(guardaConsumidor, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -69,14 +69,14 @@ public class ConsumidorRestController {
 	}
 
 	@PostMapping
-	public ResponseEntity<?> post(@RequestBody Consumidor input) {
-		Consumidor save = consumidorRepo.save(input);
+	public ResponseEntity<?> post(@RequestBody Producto input) {
+		Producto save = productoRepo.save(input);
 		return ResponseEntity.ok(save);
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id) {
-		consumidorRepo.deleteById(id);
+		productoRepo.deleteById(id);
 		return null;
 	}
 
