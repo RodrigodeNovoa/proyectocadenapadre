@@ -1,13 +1,13 @@
-package com.proyectocadena.producto;
+package com.proyectocadena.transaccion;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductoApplication {
+public class TransaccionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductoApplication.class, args);
+		SpringApplication.run(TransaccionApplication.class, args);
 	}
 
 }

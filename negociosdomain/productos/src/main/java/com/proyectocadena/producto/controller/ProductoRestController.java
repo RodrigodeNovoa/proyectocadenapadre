@@ -51,18 +51,18 @@ public class ProductoRestController {
 	@PutMapping("/{id}")
 	public ResponseEntity<?> put(@PathVariable long id, @RequestBody Producto input) {
 		/*
-		 * Recibo una entidad Consumidor y su ID que me piden actualizar
+		 * Recibo una entidad producto y su ID que me piden actualizar
 		 * Lo busco en la base de datos.
 		 * si existe, remapeo esos valores y lo guardo en la base de datos.
 		 * Si no, retorno que no existe.
 		 */
-		Optional<Producto> consumidor = productoRepo.findById(id);
-		if (consumidor.isPresent()) {
-			Producto nuevoConsumidor = consumidor.get();
-			nuevoConsumidor.setCodigo(input.getCodigo());
-			nuevoConsumidor.setNombre(input.getNombre());
-			Producto guardaConsumidor = productoRepo.save(nuevoConsumidor);
-			return new ResponseEntity<>(guardaConsumidor, HttpStatus.OK);
+		Optional<Producto> producto = productoRepo.findById(id);
+		if (producto.isPresent()) {
+			Producto nuevoProducto = producto.get();
+			nuevoProducto.setCodigo(input.getCodigo());
+			nuevoProducto.setNombre(input.getNombre());
+			Producto guardaProducto = productoRepo.save(nuevoProducto);
+			return new ResponseEntity<>(guardaProducto, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

@@ -1,0 +1,4 @@
+com\proyectocadena\transaccion\TransaccionApplication.class
+com\proyectocadena\transaccion\controller\TransaccionRestController.class
+com\proyectocadena\transaccion\entities\Transaccion.class
+com\proyectocadena\transaccion\repository\TransaccionRepositorio.class
