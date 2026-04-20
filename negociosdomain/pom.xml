@@ -12,7 +12,7 @@
   <packaging>pom</packaging>
   
   <modules>
-  	<module>consumidor</module>
+	<module>cliente</module>
   	<module>productos</module>
   	<module>transaccion</module>
   </modules>
