@@ -1,4 +1,5 @@
 com\proyectocadena\cliente\entities\Cliente.class
 com\proyectocadena\cliente\controller\ClienteRestController.class
 com\proyectocadena\cliente\ClienteApplication.class
+com\proyectocadena\cliente\entities\ClienteProducto.class
 com\proyectocadena\cliente\repository\ClienteRepositorio.class

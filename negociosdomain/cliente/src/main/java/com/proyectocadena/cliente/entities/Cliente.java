@@ -35,7 +35,7 @@ public class Cliente {
 	 * Permite que una entidad "padre" tenga una colección de entidades "hijas" asociadas.
 	 * Generalmente, se usa junto con @ManyToOne en la clase hija para lograr una relación bidireccional
 	 */
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ClienteProducto> productos; 
 	
 	/*

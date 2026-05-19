@@ -28,9 +28,11 @@ public class ProductoRestController {
 
 	@GetMapping()
 	public List<Producto> findAll() {
-		return productoRepo.findAll(); // metodo findAll(), proporcionado por JpaRepository, desde el
-											// ConsumidorRepositorio
+		return productoRepo.findAll(); 
+		// metodo findAll(), proporcionado por JpaRepository, desde el ConsumidorRepositorio
 	}
+	
+	//TODO los metodos funcionan pero podrian estar mejor, y no comprueban si el producto pertenece a un cliente.
 
 	@GetMapping("/{id}")
 	public ResponseEntity<?> get(@PathVariable long id) {
@@ -76,8 +78,11 @@ public class ProductoRestController {
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable long id) {
-		productoRepo.deleteById(id);
-		return null;
+		Optional<Producto> findById = productoRepo.findById(id);   
+        if(findById.get() != null){               
+        	productoRepo.delete(findById.get());  
+        }
+        return ResponseEntity.ok().build();
 	}
 
 }
